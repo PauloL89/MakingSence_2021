@@ -1,0 +1,19 @@
+[
+  
+  {
+    "idCar": 0,
+    "Model": 2020,
+    "DoorQuantity": 5,
+    "mark": 1,
+    "color": 3,
+    "box": 0
+  },
+  {
+    "idCar": 1,
+    "Model": 2019,
+    "DoorQuantity": 3,
+    "mark": 2,
+    "color": 5,
+    "box": 1
+  }
+]
