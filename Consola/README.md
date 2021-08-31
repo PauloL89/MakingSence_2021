@@ -1,7 +1,7 @@
 # MakingSence_2021
 Making Sence Academy 2021
 
-## RencaCar
+## RentaCar
 ***
 Nos contactan para realizar un software que le permita a una agencia de alquiler de autos gestionar los alquileres de los autos. Nuestro cliente, Roberto, nos cuenta que su negocio dispone de un amplio catálogo de autos, de las siguientes marcas: Fiat, Ford, Chevrolet, Peugeot, Renault y Volkswagen. Cada tipo de autos de su inventario se diferencian por el modelo, la cantidad de puertas, el color y si es manual o automático.
 
