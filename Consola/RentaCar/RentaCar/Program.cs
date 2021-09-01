@@ -272,7 +272,7 @@ namespace RentaCar
                         Main(null);
                         break;
                 }
-               // Console.ReadLine();
+               
 
                 Console.WriteLine("Choice option: 0-EXIT, 1-CREATE, 2-READ BY ID, 3-READ ALL, 4-UPDATE, 5-DELETE");
 
