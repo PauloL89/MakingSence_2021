@@ -36,27 +36,27 @@ namespace RentaCar
                                        0-FIAT, 1-FORD, 2-CHEVROLET, 
                                         3-PEUGEOT, 4-RENAUL, 5-VOLKSWANGEN");
                         var nBrand = Convert.ToInt32(Console.ReadLine());
-                        Car.Brand? brand = null;
+                        Brand? brand = null;
 
                         switch (nBrand)
                         {
                             case 0:
-                                brand = Car.Brand.Fiat;
+                                brand = Brand.Fiat;
                                 break;
                             case 1:
-                                brand = Car.Brand.Ford;
+                                brand = Brand.Ford;
                                 break;
                             case 2:
-                                brand = Car.Brand.Chevrolet;
+                                brand = Brand.Chevrolet;
                                 break;
                             case 3:
-                                brand = Car.Brand.Peugeot;
+                                brand = Brand.Peugeot;
                                 break;
                             case 4:
-                                brand = Car.Brand.Renault;
+                                brand = Brand.Renault;
                                 break;
                             case 5:
-                                brand = Car.Brand.Volkswagen;
+                                brand = Brand.Volkswagen;
                                 break;
                             default:
                                 break;
@@ -68,42 +68,42 @@ namespace RentaCar
                                          6-ORANGE, 7-LIGH BLUE, 8-PINK, 
                                           9-VIOLET, 10-GREEN");
                         var nColor = Convert.ToInt32(Console.ReadLine());
-                        Car.Color? color = null;
+                        Color? color = null;
 
                         switch (nColor)
                         {
                             case 0:
-                                color = Car.Color.Red;
+                                color = Color.Red;
                                 break;
                             case 1:
-                                color = Car.Color.Blue;
+                                color = Color.Blue;
                                 break;
                             case 2:
-                                color = Car.Color.Yellow;
+                                color = Color.Yellow;
                                 break;
                             case 3:
-                                color = Car.Color.Black;
+                                color = Color.Black;
                                 break;
                             case 4:
-                                color = Car.Color.White;
+                                color = Color.White;
                                 break;
                             case 5:
-                                color = Car.Color.Gray;
+                                color = Color.Gray;
                                 break;
                             case 6:
-                                color = Car.Color.Orange;
+                                color = Color.Orange;
                                 break;
                             case 7:
-                                color = Car.Color.LigthBlue;
+                                color = Color.LigthBlue;
                                 break;
                             case 8:
-                                color = Car.Color.Pink;
+                                color = Color.Pink;
                                 break;
                             case 9:
-                                color = Car.Color.Violet;
+                                color = Color.Violet;
                                 break;
                             case 10:
-                                color = Car.Color.Green;
+                                color = Color.Green;
                                 break;
                             default:
                                 break;
@@ -111,14 +111,14 @@ namespace RentaCar
 
                         Console.WriteLine("Enter Box to register: 0-MANUAL, 1-AUTOMATIC");
                         var nCaja = Convert.ToInt32(Console.ReadLine());
-                        Car.Box? caja = null;
+                        Box? caja = null;
                         switch (nCaja)
                         {
                             case 0:
-                                caja = Car.Box.Manual;
+                                caja = Box.Manual;
                                 break;
                             case 1:
-                                caja = Car.Box.Automatic;
+                                caja = Box.Automatic;
                                 break;
                             default:
                                 break;
@@ -160,27 +160,27 @@ namespace RentaCar
                                        0-FIAT, 1-FORD, 2-CHEVROLET, 
                                         3-PEUGEOT, 4-RENAUL, 5-VOLKSWANGEN");
                         var numBrand = Convert.ToInt32(Console.ReadLine());
-                        Car.Brand? _brand = null;
+                        Brand? _brand = null;
 
                         switch (numBrand)
                         {
                             case 0:
-                                _brand = Car.Brand.Fiat;
+                                _brand = Brand.Fiat;
                                 break;
                             case 1:
-                                _brand = Car.Brand.Ford;
+                                _brand = Brand.Ford;
                                 break;
                             case 2:
-                               _brand = Car.Brand.Chevrolet;
+                               _brand = Brand.Chevrolet;
                                 break;
                             case 3:
-                                _brand = Car.Brand.Peugeot;
+                                _brand = Brand.Peugeot;
                                 break;
                             case 4:
-                                _brand = Car.Brand.Renault;
+                                _brand = Brand.Renault;
                                 break;
                             case 5:
-                                _brand = Car.Brand.Volkswagen;
+                                _brand = Brand.Volkswagen;
                                 break;
                             default:
                                 break;
@@ -192,42 +192,42 @@ namespace RentaCar
                                          6-ORANGE, 7-LIGTH BLUE, 8-PINK, 
                                           9-VIOLET, 10-GREEN");
                         var nCol = Convert.ToInt32(Console.ReadLine());
-                        Car.Color? col = null;
+                        Color? col = null;
 
                         switch (nCol)
                         {
                             case 0:
-                                col = Car.Color.Red;
+                                col = Color.Red;
                                 break;
                             case 1:
-                                col = Car.Color.Blue;
+                                col = Color.Blue;
                                 break;
                             case 2:
-                                col = Car.Color.Yellow;
+                                col = Color.Yellow;
                                 break;
                             case 3:
-                                col = Car.Color.Black;
+                                col = Color.Black;
                                 break;
                             case 4:
-                                col = Car.Color.White;
+                                col = Color.White;
                                 break;
                             case 5:
-                                col = Car.Color.Gray;
+                                col = Color.Gray;
                                 break;
                             case 6:
-                                col = Car.Color.Orange;
+                                col = Color.Orange;
                                 break;
                             case 7:
-                                col = Car.Color.LigthBlue;
+                                col = Color.LigthBlue;
                                 break;
                             case 8:
-                                col = Car.Color.Pink;
+                                col = Color.Pink;
                                 break;
                             case 9:
-                                col = Car.Color.Violet;
+                                col = Color.Violet;
                                 break;
                             case 10:
-                                col = Car.Color.Green;
+                                col = Color.Green;
                                 break;
                             default:
                                 break;
@@ -235,14 +235,14 @@ namespace RentaCar
 
                         Console.WriteLine("Enter Box to update: 0-MANUAL, 1-AUTOMATIC");
                         var nCaj = Convert.ToInt32(Console.ReadLine());
-                        Car.Box? caj = null;
+                        Box? caj = null;
                         switch (nCaj)
                         {
                             case 0:
-                                caj = Car.Box.Manual;
+                                caj = Box.Manual;
                                 break;
                             case 1:
-                                caj = Car.Box.Automatic;
+                                caj = Box.Automatic;
                                 break;
                             default:
                                 break;

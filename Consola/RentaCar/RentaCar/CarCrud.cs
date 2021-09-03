@@ -13,7 +13,7 @@ namespace RentaCar
 	class CarCrud
     {
 
-		private string jsonFile = @"C:\Users\Paulo_PC\source\repos\Making Sense\Consola\RentaCar\RentaCar\Cars.json";
+		private string jsonFile = "Cars.json";
 		List<Car> listCar = new List<Car>();
 
 		public void Create(Car car)
