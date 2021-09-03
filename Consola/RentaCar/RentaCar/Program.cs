@@ -265,7 +265,7 @@ namespace RentaCar
                     case 5:
                         Console.WriteLine("Enter ID to delete: ");
                         var id_delete = Convert.ToInt32(Console.ReadLine());
-                        carCrud.Delete(x => x.idCar == id_delete);
+                        carCrud.Delete(id_delete);
                         break;
                     default:
                         Console.WriteLine("Invalid Option");

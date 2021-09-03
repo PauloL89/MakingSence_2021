@@ -98,10 +98,10 @@ namespace RentaCar
 			
 		}
 
-		public void Delete(Func<Car,bool> id)
+		public void Delete(int id)
 		{
 			Load();
-			listCar = listCar.Where(x => !id(x)).ToList();
+			listCar.RemoveAt(id);
 			Save();
 			
 		}
