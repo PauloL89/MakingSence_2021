@@ -42,34 +42,34 @@ namespace RentaCar
 		public void Get(int id)
 		{
 
-            using (StreamReader r = new StreamReader(jsonFile))
-            {
-				string json = r.ReadToEnd();
-				List<Car> carList = JsonConvert.DeserializeObject<List<Car>>(json);
-				foreach (var item in carList)
-				{
-					if (item.idCar == id)
+		    using (StreamReader r = new StreamReader(jsonFile))
+		    {
+					string json = r.ReadToEnd();
+					List<Car> carList = JsonConvert.DeserializeObject<List<Car>>(json);
+					foreach (var item in carList)
 					{
+						if (item.idCar == id)
+						{
 
-						Console.WriteLine(item.ToStringCar());
+							Console.WriteLine(item.ToStringCar());
+						}
+
 					}
-
 				}
-			}
 					
-        }
+        	}
 
 		public void GetAll()
 		{
-            using (StreamReader r = new StreamReader(jsonFile))
-            {
-				string json = r.ReadToEnd();
-				List<Car> carList = JsonConvert.DeserializeObject<List<Car>>(json);
-				foreach (var item in carList)
-				{
-					Console.WriteLine(item.ToStringCar());
-				}
-			}
+		    using (StreamReader r = new StreamReader(jsonFile))
+		    {
+					string json = r.ReadToEnd();
+					List<Car> carList = JsonConvert.DeserializeObject<List<Car>>(json);
+					foreach (var item in carList)
+					{
+						Console.WriteLine(item.ToStringCar());
+					}
+		    }
 			
 			
 		}
@@ -80,19 +80,18 @@ namespace RentaCar
 		{
 			Load();
 			
-            foreach (var item in listCar)
-            {
-				if(item.idCar == id) 
-				{
-					item.idCar = car.idCar;
-					item.Model = car.Model;
-					item.Doors = car.Doors;
-					item.brand = car.brand;
-					item.color = car.color;
-					item.box = car.box;
-				}
-				
-            }
+		    foreach (var item in listCar)
+		    {
+			    if(item.idCar == id) 
+					{
+						item.idCar = car.idCar;
+						item.Model = car.Model;
+						item.Doors = car.Doors;
+						item.brand = car.brand;
+						item.color = car.color;
+						item.box = car.box;
+					}
+		    }
 			Save();
 			
 			
