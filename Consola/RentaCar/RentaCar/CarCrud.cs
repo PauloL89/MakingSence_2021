@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace RentaCar
 	class CarCrud
     {
 
-		private string jsonFile = @"C:\Users\Paulo_PC\source\repos\Making Sense\Consola\RentaCar\RentaCar\Cars.json";
+		private string jsonFile = ConfigurationManager.AppSettings[("jsonFilePath")];
 		List<Car> listCar = new List<Car>();
 
 		public void Create(Car car)
