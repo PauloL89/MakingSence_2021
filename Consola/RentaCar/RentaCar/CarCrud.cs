@@ -41,33 +41,37 @@ namespace RentaCar
 
 		public void Get(int id)
 		{
-			
 
-			StreamReader r = new StreamReader(jsonFile);
-			string json = r.ReadToEnd();
-			List<Car> carList = JsonConvert.DeserializeObject<List<Car>>(json);
-            foreach (var item in carList)
+            using (StreamReader r = new StreamReader(jsonFile))
             {
-				if (item.idCar == id)
+				string json = r.ReadToEnd();
+				List<Car> carList = JsonConvert.DeserializeObject<List<Car>>(json);
+				foreach (var item in carList)
 				{
+					if (item.idCar == id)
+					{
 
-					Console.WriteLine(item.ToStringCar());
+						Console.WriteLine(item.ToStringCar());
+					}
+
 				}
-				
 			}
-			r.Close();
+					
         }
 
 		public void GetAll()
 		{
-			StreamReader r = new StreamReader(jsonFile);
-			string json = r.ReadToEnd();
-			List<Car> carList = JsonConvert.DeserializeObject<List<Car>>(json);
-			foreach (var item in carList)
-			{
-				Console.WriteLine(item.ToStringCar());
+            using (StreamReader r = new StreamReader(jsonFile))
+            {
+				string json = r.ReadToEnd();
+				List<Car> carList = JsonConvert.DeserializeObject<List<Car>>(json);
+				foreach (var item in carList)
+				{
+					Console.WriteLine(item.ToStringCar());
+				}
 			}
-			r.Close();
+			
+			
 		}
 
 		
