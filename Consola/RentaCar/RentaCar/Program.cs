@@ -29,34 +29,34 @@ namespace RentaCar
                         Console.WriteLine("Enter MODEL to register: ");
                         var modelo = Convert.ToInt32(Console.ReadLine());
 
-                        Console.WriteLine("Enter Door quantity to register: ");
-                        var canPuertas = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter Doors quantity to register: ");
+                        var doors = Convert.ToInt32(Console.ReadLine());
 
-                        Console.WriteLine(@"Enter MARK of car to register: 
+                        Console.WriteLine(@"Enter Brand of car to register: 
                                        0-FIAT, 1-FORD, 2-CHEVROLET, 
                                         3-PEUGEOT, 4-RENAUL, 5-VOLKSWANGEN");
-                        var nMarca = Convert.ToInt32(Console.ReadLine());
-                        Car.Mark? marca = null;
+                        var nBrand = Convert.ToInt32(Console.ReadLine());
+                        Car.Brand? brand = null;
 
-                        switch (nMarca)
+                        switch (nBrand)
                         {
                             case 0:
-                                marca = Car.Mark.Fiat;
+                                brand = Car.Brand.Fiat;
                                 break;
                             case 1:
-                                marca = Car.Mark.Ford;
+                                brand = Car.Brand.Ford;
                                 break;
                             case 2:
-                                marca = Car.Mark.Chevrolet;
+                                brand = Car.Brand.Chevrolet;
                                 break;
                             case 3:
-                                marca = Car.Mark.Peugeot;
+                                brand = Car.Brand.Peugeot;
                                 break;
                             case 4:
-                                marca = Car.Mark.Renault;
+                                brand = Car.Brand.Renault;
                                 break;
                             case 5:
-                                marca = Car.Mark.Volkswagen;
+                                brand = Car.Brand.Volkswagen;
                                 break;
                             default:
                                 break;
@@ -128,8 +128,8 @@ namespace RentaCar
                         {
                             idCar = idCar,
                             Model = modelo,
-                            DoorQuantity = canPuertas,
-                            mark = marca.Value,
+                            Doors = doors,
+                            brand = brand.Value,
                             color = color.Value,
                             box = caja.Value
                         };
@@ -153,34 +153,34 @@ namespace RentaCar
                         Console.WriteLine("Enter MODEL to update: ");
                         var model = Convert.ToInt32(Console.ReadLine());
 
-                        Console.WriteLine("Enter Door quantity to update: ");
-                        var canPuert = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter Doors quantity to update: ");
+                        var _doors = Convert.ToInt32(Console.ReadLine());
 
-                        Console.WriteLine(@"Enter MARK to update: 
+                        Console.WriteLine(@"Enter Brand to update: 
                                        0-FIAT, 1-FORD, 2-CHEVROLET, 
                                         3-PEUGEOT, 4-RENAUL, 5-VOLKSWANGEN");
-                        var nMarc = Convert.ToInt32(Console.ReadLine());
-                        Car.Mark? marc = null;
+                        var numBrand = Convert.ToInt32(Console.ReadLine());
+                        Car.Brand? _brand = null;
 
-                        switch (nMarc)
+                        switch (numBrand)
                         {
                             case 0:
-                                marc = Car.Mark.Fiat;
+                                _brand = Car.Brand.Fiat;
                                 break;
                             case 1:
-                                marc = Car.Mark.Ford;
+                                _brand = Car.Brand.Ford;
                                 break;
                             case 2:
-                                marc = Car.Mark.Chevrolet;
+                               _brand = Car.Brand.Chevrolet;
                                 break;
                             case 3:
-                                marc = Car.Mark.Peugeot;
+                                _brand = Car.Brand.Peugeot;
                                 break;
                             case 4:
-                                marc = Car.Mark.Renault;
+                                _brand = Car.Brand.Renault;
                                 break;
                             case 5:
-                                marc = Car.Mark.Volkswagen;
+                                _brand = Car.Brand.Volkswagen;
                                 break;
                             default:
                                 break;
@@ -253,14 +253,15 @@ namespace RentaCar
                         {
                             idCar = idUpdate,
                             Model = model,
-                            DoorQuantity = canPuert,
-                            mark = marc.Value,
+                            Doors = _doors,
+                            brand = _brand.Value,
                             color = col.Value,
                             box = caj.Value
                         };
 
-                        carCrud.Update(x => x.idCar == idUpdate, carUpdate);
-                        
+                        //carCrud.Update(x => x.idCar == idUpdate, carUpdate);
+                        carCrud.Update(idUpdate, carUpdate);
+
                         break;
                     case 5:
                         Console.WriteLine("Enter ID to delete: ");
