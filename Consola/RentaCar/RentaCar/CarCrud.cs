@@ -69,14 +69,25 @@ namespace RentaCar
 			r.Close();
 		}
 
-		public void Update(Func<Car, bool> id, Car carUpdate)
+		
+
+		public void Update(int id, Car car)
 		{
 			Load();
-			listCar = listCar.Select( x => 
-			{
-				if (id(x)) x = carUpdate;
-				return x;
-			}).ToList();
+			
+            foreach (var item in listCar)
+            {
+				if(item.idCar == id) 
+				{
+					item.idCar = car.idCar;
+					item.Model = car.Model;
+					item.Doors = car.Doors;
+					item.brand = car.brand;
+					item.color = car.color;
+					item.box = car.box;
+				}
+				
+            }
 			Save();
 			
 			
