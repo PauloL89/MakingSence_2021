@@ -11,11 +11,8 @@ namespace RentaCar
         public int idCar { get; set; }
         public int Model { get; set; }
         public int Doors { get; set; }
-        public enum Brand { Fiat, Ford, Chevrolet, Peugeot, Renault, Volkswagen }
         public Brand brand { get; set; }
-        public enum Color {Red,Blue,Yellow,Black,White,Gray,Orange,LigthBlue,Pink,Violet,Green}
         public Color color { get; set; }
-        public enum Box { Manual, Automatic }
         public Box box { get; set; }
 
 
