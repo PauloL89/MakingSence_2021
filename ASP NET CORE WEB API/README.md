@@ -9,25 +9,25 @@ Crear una clase con nombre Car, en un archivo Car.cs, que contenga las propiedad
 
 Realizar un CRUD (Crear, Leer, Actualizar y Borrar) de autos (los siguientes métodos deben ser creados dentro de una clase llamada CarCRUD.cs):
 Crear un método con el nombre Create que tenga un parámetro con nombre car del tipo Car. El método debe almacenar, al final de un archivo con nombre Cars.json, los valores del parámetro car en formato json y retornar el auto creado.
+```
 public Car Create(Car car)
-```
 {
    // Code here
 }
 
 ```
-
 Crear un método con el nombre Get que tenga como parámetro el Id del auto que se desea leer. El método debe buscar en el archivo Cars.json el auto que contenga un Id igual al Id pasado por parámetro y retornarlo.
-public Car Get(int id) 
 ```
+public Car Get(int id) 
 {
    // Code here
 }
 
 ```
+
 Crear un método con el nombre Update que tenga como parámetro el auto que se desea actualizar. El método debe buscar en el archivo Cars.json el auto que contenga un Id igual al Id del auto pasado por parámetro y actualizar todos sus valores con los valores del auto pasado por parámetro y retornarlo.
-public Car Update(Car car)
 ```
+public Car Update(Car car)
 {
    // Code here
 }
@@ -35,8 +35,8 @@ public Car Update(Car car)
 ```
 
 Crear un método con el nombre Delete que tenga como parámetro el Id del auto que se desea eliminar. El método debe buscar en el archivo Cars.json el auto que contenga un Id igual al Id pasado por parámetro y eliminarlo del archivo.
-public void Delete(int id)
 ```
+public void Delete(int id)
 {
    // Code here
 }
