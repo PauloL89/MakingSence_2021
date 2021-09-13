@@ -13,6 +13,6 @@ namespace RentaCar.Repositories
         public Car GetCarDetails(int id);
         public void InsertCar(Car car);
         public void UpdateCar(int id,Car car);
-        public void DeleteCar(int id);
+        public void DeleteCar(int id); 
     }
 }

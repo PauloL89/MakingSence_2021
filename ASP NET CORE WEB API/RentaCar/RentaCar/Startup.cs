@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RentaCar.Connection;
+using RentaCar.Entities;
 using RentaCar.Repositories;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,9 @@ namespace RentaCar
         {
             var JsonConnectionString = new JsonConnection(Configuration.GetConnectionString("jsonConnection"));
             services.AddSingleton(JsonConnectionString);
-            services.AddScoped<ICarRepository,CarRepository>();
+            //services.AddScoped<ICarRepository,CarRepository>();
+            services.AddScoped<IRepository<Car>,Repository<Car>>();
+            services.AddScoped<IRepository<Customer>,Repository<Customer>>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -15,46 +15,46 @@ namespace RentaCar.Controllers
     [ApiController]
     public class CarCRUDController : ControllerBase
     {
-        private readonly ICarRepository _carRepository;
-        public CarCRUDController(ICarRepository carRepository)
+        //private readonly ICarRepository _carRepository;
+        private readonly IRepository<Car> _repository;
+        public CarCRUDController(IRepository<Car> repository)
         {
-            _carRepository = carRepository;
+            _repository = repository;
         }
 
         // LIST ALL
         [HttpGet]
         public IEnumerable<Car> GetAll()
         {
-           return _carRepository.GetAllCars().ToList();
+           return _repository.GetAll("Json/Cars.json").ToList();
         }
 
         //Get Car By ID
        [HttpGet("{id}")]
         public Car GetDetails(int id)
         {
-           return _carRepository.GetCarDetails(id);
+           return _repository.GetCarDetails(id,"Json/Cars.json");
         }
 
         // INSERT
         [HttpPost]
         public void Insert([FromBody] Car car)
         {
-
-            _carRepository.InsertCar(car);
+            _repository.Insert(car,"Json/Cars.json");
         }
 
         // UPDATE
         [HttpPut("{id}")]
         public void Update(int id, [FromBody] Car car)
         {
-            _carRepository.UpdateCar(id,car);
+            _repository.Update(id,car,"Json/Cars.json");
         }
 
         //// DELETE
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _carRepository.DeleteCar(id);
+            _repository.Delete(id,"Json/Cars.json");
         }
 
 
