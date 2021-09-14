@@ -53,7 +53,8 @@ namespace RentaCar.Repositories
                 return car;
             }
         }
-
+        
+        //Insert
         public void InsertCar(Car car)
         {
             Load();
