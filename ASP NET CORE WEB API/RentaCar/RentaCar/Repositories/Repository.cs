@@ -133,7 +133,7 @@ namespace RentaCar.Repositories
 
         public void Load(string path)
         {
-            //string json = File.ReadAllText(_connection.ConnectionString);
+            
             string json = File.ReadAllText(path);
             entities = JsonConvert.DeserializeObject<List<T>>(json);
         }
