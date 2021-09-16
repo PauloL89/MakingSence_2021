@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RentaCar.Connection;
 using RentaCar.Entities;
 using RentaCar.Repositories;
 using System;
@@ -13,10 +15,10 @@ namespace RentaCar.Controllers
     [ApiController]
     public class CustomerCRUDController : ControllerBase
     {
-        private readonly IRepository<Customer> _Repository;
-        public CustomerCRUDController(IRepository<Customer> repository)
+        private readonly ContexDB _contex;
+        public CustomerCRUDController(ContexDB contex)
         {
-            _Repository = repository;
+            _contex = contex;
         }
 
         // LIST ALL
@@ -24,35 +26,65 @@ namespace RentaCar.Controllers
         public IEnumerable<Customer> GetAll()
         {
             
-            return _Repository.GetAll("Json/Customers.json").ToList();
+            return _contex.customers.ToList();
         }
 
         //Get Car By ID
         [HttpGet("{id}")]
-        public Customer GetDetails(int dni)
+        public Customer GetDetails(string dni)
         {
-            return _Repository.GetCustomerDetails(dni,"Json/Customers.json");
+            var customer = _contex.customers.FirstOrDefault(p => p.Dni == dni);
+            return customer;
         }
 
         // INSERT
         [HttpPost]
-        public void Insert([FromBody] Customer customer)
+        public Customer Insert([FromBody] Customer customer)
         {
-            _Repository.Insert(customer,"Json/Customers.json");
+            try
+            {
+                _contex.customers.Add(customer);
+                _contex.SaveChanges();
+            }
+            catch (Exception)
+            {
+                BadRequest();
+                throw;
+            }
+            return customer;
         }
 
         // UPDATE
         [HttpPut("{id}")]
-        public void Update(int dni, [FromBody] Customer customer)
+        public Customer Update(string dni, [FromBody] Customer customer)
         {
-            _Repository.Update(dni, customer,"Json/Customers.json");
+            if(customer.Dni == dni) 
+            {
+                _contex.Entry(customer).State = EntityState.Modified;
+                _contex.SaveChanges();
+            }
+            else 
+            {
+                BadRequest();
+            }
+            return customer;
         }
 
         //// DELETE
         [HttpDelete("{id}")]
-        public void Delete(int dni)
+        public IActionResult Delete(string dni)
         {
-            _Repository.Delete(dni,"Json/Customers.json");
+            var customer = _contex.customers.FirstOrDefault(p => p.Dni == dni);
+            if(customer.Dni != null) 
+            {
+                _contex.Remove(customer);
+                _contex.SaveChanges();
+                return Ok();
+            }
+            else 
+            {
+                return BadRequest();
+            }
         }
     }
 }

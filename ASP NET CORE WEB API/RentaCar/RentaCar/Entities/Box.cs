@@ -1,9 +1,12 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace RentaCar.Entities
 {
-    public enum Box
+    public class Box
     {
-        Manual = 1,
-        Automatic = 2
+        [Key]
+        public int NameBox { get; set; }
+        public string IdBox { get; set; }
     }
 }

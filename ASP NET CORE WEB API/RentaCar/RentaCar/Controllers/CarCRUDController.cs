@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using RentaCar.Repositories;
+using RentaCar.Connection;
 
 namespace RentaCar.Controllers
 {
@@ -15,46 +16,75 @@ namespace RentaCar.Controllers
     [ApiController]
     public class CarCRUDController : ControllerBase
     {
-        //private readonly ICarRepository _carRepository;
-        private readonly IRepository<Car> _repository;
-        public CarCRUDController(IRepository<Car> repository)
+        private readonly ContexDB _contex;
+        public CarCRUDController(ContexDB contex)
         {
-            _repository = repository;
+            _contex = contex;
         }
 
         // LIST ALL
         [HttpGet]
         public IEnumerable<Car> GetAll()
         {
-           return _repository.GetAll("Json/Cars.json").ToList();
+            return _contex.cars.ToList();
         }
 
         //Get Car By ID
        [HttpGet("{id}")]
         public Car GetDetails(int id)
         {
-           return _repository.GetCarDetails(id,"Json/Cars.json");
+           var car = _contex.cars.FirstOrDefault(p => p.IdCar == id);
+            return car;
         }
 
         // INSERT
         [HttpPost]
-        public void Insert([FromBody] Car car)
+        public Car Insert([FromBody] Car car)
         {
-            _repository.Insert(car,"Json/Cars.json");
+            try
+            {
+                _contex.cars.Add(car);
+                _contex.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return car;
         }
 
         // UPDATE
         [HttpPut("{id}")]
-        public void Update(int id, [FromBody] Car car)
+        public Car Update(int id, [FromBody] Car car)
         {
-            _repository.Update(id,car,"Json/Cars.json");
+            if (car.IdCar == id) 
+            {
+                _contex.Entry(car).State = EntityState.Modified;
+                _contex.SaveChanges();
+            }
+            else 
+            {
+                BadRequest();
+            }
+            return car;
         }
 
         //// DELETE
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-            _repository.Delete(id,"Json/Cars.json");
+            var car = _contex.cars.FirstOrDefault(p => p.IdCar == id);
+            if(car != null) 
+            {
+                _contex.Remove(car);
+                _contex.SaveChanges();
+                return Ok();
+            }
+            else 
+            {
+                return BadRequest();
+            }
         }
 
 

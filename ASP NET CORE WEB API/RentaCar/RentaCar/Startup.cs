@@ -30,11 +30,8 @@ namespace RentaCar
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var JsonConnectionString = new JsonConnection(Configuration.GetConnectionString("jsonConnection"));
-            services.AddSingleton(JsonConnectionString);
-            //services.AddScoped<ICarRepository,CarRepository>();
-            services.AddScoped<IRepository<Car>,Repository<Car>>();
-            services.AddScoped<IRepository<Customer>,Repository<Customer>>();
+            services.AddDbContext<ContexDB>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionDB")));
+            
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

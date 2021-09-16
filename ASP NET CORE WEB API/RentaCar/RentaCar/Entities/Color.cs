@@ -1,16 +1,12 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace RentaCar.Entities
 {
-    public enum Color
+    public class Color
     {
-        Red = 1,
-        Blue = 2,
-        Black = 3,
-        Yellow = 4,
-        White = 5,
-        Green = 6,
-        Gray = 7,
-        Orange = 8,
-        Violet = 9,
+        [Key]
+        public int IdColor { get; set; }
+        public string NameColor { get; set; }
     }
 }

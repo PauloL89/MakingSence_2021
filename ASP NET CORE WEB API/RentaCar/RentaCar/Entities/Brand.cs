@@ -1,17 +1,12 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace RentaCar.Entities
 {
-    public enum Brand
+    public class Brand
     {
-        Ford = 1,
-        Fiat = 2,
-        Chevrolet = 3,
-        Peugeot = 4,
-        Volkswagen = 5,
-        Mazda = 6,
-        BMW = 7,
-        Audi = 8,
-        Nissan = 9,
-        Mercedes_Benz = 10
+        [Key]
+        public int IdBrand { get; set; }
+        public string NameBrand { get; set; }
     }
 }

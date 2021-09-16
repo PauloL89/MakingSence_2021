@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace RentaCar.Entities
 {
-    public class Car
+    public class Rental
     {
         [Key]
+        public int IdRental { get; set; }
+        public int RentalDuration { get; set; }
+        public string DNICustomer { get; set; }
         public int IdCar { get; set; }
-        public int Model { get; set; }
-        public int Doors { get; set; }
-        public int IdBrand { get; set; }
-        public int IdColor { get; set; }
-        public int IdBox { get; set; }
-
+        public DateTime ReturnDate { get; set; }
     }
 }
